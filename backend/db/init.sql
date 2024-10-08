@@ -1,6 +1,3 @@
-CREATE DATABASE ping_me;
-\c ping_me;
-
 -- Drop tables if they exist
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS user_chat;
@@ -41,8 +38,8 @@ CREATE TABLE messages (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Indexes for better query performance
-CREATE INDEX idx_user_chat_user_id ON user_chat(user_id);
-CREATE INDEX idx_user_chat_chat_id ON user_chat(chat_id);
-CREATE INDEX idx_messages_user_id ON messages(user_id);
+-- Create indexes
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_chats_name ON chats(name);
 CREATE INDEX idx_messages_chat_id ON messages(chat_id);
